@@ -90,6 +90,7 @@ function startGame() {
     divFinalScore.innerHTML = "";
     spanScore.innerHTML = 0;
     board.innerHTML = "";
+    const divScoreContainer = document.querySelector(".score-container");
 
 
     // Generazione board condizionale in base alla difficoltà
@@ -114,7 +115,7 @@ function startGame() {
             generateBoard(board, loopsArray[0], gameDifficulty[0]);
             bombsList = createBombs(loopsArray[0]);
     }
-
+    divScoreContainer.classList.remove("d-none");
     cellArray = document.querySelectorAll(".cell");
 }
 
