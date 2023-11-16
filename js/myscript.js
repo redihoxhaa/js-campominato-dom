@@ -1,45 +1,5 @@
 // FUNCTIONS
 
-//Funzione che mostra tutte le bombe in caso di gameover
-function showAllBombs() {
-    const cellArray = document.querySelectorAll(".cell");
-
-    for (let i = 0; i < cellArray.length; i++) {
-        const cellValue = Number(cellArray[i].innerHTML);
-        if (bombsList.includes(cellValue)) {
-            cellArray[i].classList.add("bomb");
-            mainHTML.classList.add("unclickable");
-            divOverlay.classList.remove("d-none");
-            divOverlay.classList.add("d-flex");
-            divFinalScore.innerHTML = currentScore;
-        }
-    }
-}
-
-// Funzione per gameover oppure win
-function didYouWin() {
-    if (currentScore === currentCells - 16) {
-        // inserire elemento dom da modificare
-        console.log("Hai vinto");
-    }
-}
-
-// Funzione per capire se la cella contiene una bomba
-function checkIfBomb(cell, bombsList) {
-    const cellValue = Number(cell.innerHTML);
-    if (bombsList.includes(cellValue)) {
-        showAllBombs();
-        return true;
-    }
-    if (!clickedCells.includes(cellValue)) {
-        clickedCells.push(cellValue);
-        cell.classList.add("active");
-        currentScore++;
-        spanScore.innerHTML = currentScore;
-    }
-    return false;
-}
-
 // Funzione per generare un elemento
 function generateElement(tag, classes, content, wantEventListener) {
     const cell = document.createElement(tag);
@@ -58,8 +18,6 @@ function generateElement(tag, classes, content, wantEventListener) {
     return cell;
 }
 
-
-
 // Funzione per generare board
 function generateBoard(elementToAppendTo, loops, difficulty) {
     const fragment = document.createDocumentFragment()
@@ -69,7 +27,6 @@ function generateBoard(elementToAppendTo, loops, difficulty) {
     }
     elementToAppendTo.append(fragment);
 }
-
 
 // Funzione per creare le bombe
 function createBombs(cellsNumber) {
@@ -81,6 +38,46 @@ function createBombs(cellsNumber) {
         }
     }
     return bombsArray;
+}
+
+// Funzione per capire se la cella contiene una bomba
+function checkIfBomb(cell, bombsList) {
+    const cellValue = Number(cell.innerHTML);
+    if (bombsList.includes(cellValue)) {
+        showAllBombs();
+        return true;
+    }
+    if (!clickedCells.includes(cellValue)) {
+        clickedCells.push(cellValue);
+        cell.classList.add("active");
+        currentScore++;
+        spanScore.innerHTML = currentScore;
+    }
+    return false;
+}
+
+//Funzione che mostra tutte le bombe in caso di gameover
+function showAllBombs() {
+    const cellArray = document.querySelectorAll(".cell");
+
+    for (let i = 0; i < cellArray.length; i++) {
+        const cellValue = Number(cellArray[i].innerHTML);
+        if (bombsList.includes(cellValue)) {
+            cellArray[i].classList.add("bomb");
+            mainHTML.classList.add("unclickable");
+            divOverlay.classList.remove("d-none");
+            divOverlay.classList.add("d-flex");
+            divFinalScore.innerHTML = currentScore;
+        }
+    }
+}
+
+// Funzione per capire se ho vinto
+function didYouWin() {
+    if (currentScore === currentCells - 16) {
+        // inserire elemento dom da modificare
+        console.log("Hai vinto");
+    }
 }
 
 // Funzione per inizializzare il gioco
