@@ -11,6 +11,8 @@ function checkIfBomb(cell, bombsList) {
     if (!clickedCells.includes(cellValue)) {
         clickedCells.push(cellValue);
         cell.classList.add("active");
+        currentScore++;
+        spanScore.innerHTML = currentScore;
     }
     return false;
 }
@@ -60,6 +62,8 @@ function startGame() {
     callToAction.classList.add("d-none");
     board.classList.remove("d-none");
     clickedCells = [];
+    currentScore = 0;
+    spanScore.innerHTML = 0;
     board.innerHTML = "";
 
 
@@ -97,6 +101,8 @@ const playButton = document.getElementById("play-button");
 const callToAction = document.querySelector(".call-to-action");
 let bombsList = [];
 let clickedCells = [];
+const spanScore = document.getElementById("user-score");
+let currentScore = 0;
 
 
 // Creazione opzioni in modo dinamico
