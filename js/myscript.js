@@ -8,6 +8,10 @@ function showAllBombs() {
         const cellValue = Number(cellArray[i].innerHTML);
         if (bombsList.includes(cellValue)) {
             cellArray[i].classList.add("bomb");
+            mainHTML.classList.add("unclickable");
+            divOverlay.classList.remove("d-none");
+            divOverlay.classList.add("d-flex");
+            divFinalScore.innerHTML = currentScore;
         }
     }
 }
@@ -83,8 +87,12 @@ function createBombs(cellsNumber) {
 function startGame() {
     callToAction.classList.add("d-none");
     board.classList.remove("d-none");
+    mainHTML.classList.remove("unclickable");
+    divOverlay.classList.add("d-none");
+    divOverlay.classList.remove("d-flex");
     clickedCells = [];
     currentScore = 0;
+    divFinalScore.innerHTML = "";
     spanScore.innerHTML = 0;
     board.innerHTML = "";
 
@@ -130,7 +138,9 @@ let clickedCells = [];
 const spanScore = document.getElementById("user-score");
 let currentScore = 0;
 let currentCells = 0;
-
+const mainHTML = document.getElementById("main-element");
+const divOverlay = document.querySelector(".overlay");
+const divFinalScore = document.getElementById("final-score");
 
 // Creazione opzioni in modo dinamico
 for (i = 0; i < gameDifficulty.length; i++) {

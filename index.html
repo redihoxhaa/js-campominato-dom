@@ -57,7 +57,7 @@
     <!-- /Header -->
 
     <!-- Main -->
-    <main class="d-flex flex-column justify-content-center align-content-center flex-wrap">
+    <main class="d-flex flex-column justify-content-center align-content-center flex-wrap" id="main-element">
         <h2 class="call-to-action">Premi "Play" per iniziare una partita!</h2>
 
         <!-- Board di gioco -->
@@ -68,7 +68,15 @@
             <span>Score:</span>
             <span id="user-score">0</span>
         </div>
+        <div class="overlay d-none justify-content-center align-items-center">
+            <div class="text-inside d-flex flex-column justify-content-center align-items-center">
+                <h2>Mi dispiace, hai perso!</h2>
+                <h4>Il tuo punteggio è</h4>
+                <h4 id="final-score"></h4>
+            </div>
 
+
+        </div>
         <!-- /Board di gioco -->
 
     </main>
