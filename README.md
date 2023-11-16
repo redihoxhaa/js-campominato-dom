@@ -30,3 +30,6 @@ Possiamo creare un overlay nero trasparente al 50% da appendere alla fine del ma
 
 - Superbonus 2 -
 Per rendere possibile questo comportamente allora invece di far colorare solo la cella di una bomba selezionata dovremo aggiungere la classe a sfondo rosso a tutte le bombe. Senza aver svolto l'esercizio ho difficoltà ad immaginare come implementare questa funzione perché non sono ancora sicuro sull'architettura del programma.
+
+_Considerazioni post esercizio_
+

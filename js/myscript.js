@@ -4,7 +4,7 @@
 function showAllBombs() {
     const cellArray = document.querySelectorAll(".cell");
 
-    for (let i = 0; i < currentCells; i++) {
+    for (let i = 0; i < cellArray.length; i++) {
         const cellValue = Number(cellArray[i].innerHTML);
         if (bombsList.includes(cellValue)) {
             cellArray[i].classList.add("bomb");
