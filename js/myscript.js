@@ -11,7 +11,6 @@ function generateElement(tag, classes, content, wantEventListener) {
             if (!checkIfBomb(cell, bombsList)) {
                 didYouWin();
             }
-
         })
     }
 
@@ -58,7 +57,6 @@ function checkIfBomb(cell, bombsList) {
 
 //Funzione che mostra tutte le bombe in caso di gameover
 function showAllBombs() {
-    const cellArray = document.querySelectorAll(".cell");
 
     for (let i = 0; i < cellArray.length; i++) {
         const cellValue = Number(cellArray[i].innerHTML);
@@ -74,7 +72,7 @@ function showAllBombs() {
 
 // Funzione per capire se ho vinto
 function didYouWin() {
-    if (currentScore === currentCells - 16) {
+    if (currentScore === cellArray.length - 16) {
         // inserire elemento dom da modificare
         console.log("Hai vinto");
     }
@@ -99,27 +97,25 @@ function startGame() {
         case gameDifficulty[3]:
             generateBoard(board, loopsArray[3], gameDifficulty[3]);
             bombsList = createBombs(loopsArray[3]);
-            currentCells = loopsArray[3];
             break;
 
         case gameDifficulty[2]:
             generateBoard(board, loopsArray[2], gameDifficulty[2]);
             bombsList = createBombs(loopsArray[2]);
-            currentCells = loopsArray[2];
             break;
 
         case gameDifficulty[1]:
             generateBoard(board, loopsArray[1], gameDifficulty[1]);
             bombsList = createBombs(loopsArray[1]);
-            currentCells = loopsArray[1];
             break;
 
         case gameDifficulty[0]:
         default:
             generateBoard(board, loopsArray[0], gameDifficulty[0]);
             bombsList = createBombs(loopsArray[0]);
-            currentCells = loopsArray[0];
     }
+
+    cellArray = document.querySelectorAll(".cell");
 }
 
 // OPERATIONS
@@ -134,10 +130,10 @@ let bombsList = [];
 let clickedCells = [];
 const spanScore = document.getElementById("user-score");
 let currentScore = 0;
-let currentCells = 0;
 const mainHTML = document.getElementById("main-element");
 const divOverlay = document.querySelector(".overlay");
 const divFinalScore = document.getElementById("final-score");
+let cellArray = 0;
 
 // Creazione opzioni in modo dinamico
 for (i = 0; i < gameDifficulty.length; i++) {
