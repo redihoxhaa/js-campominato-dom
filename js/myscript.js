@@ -62,19 +62,24 @@ function showAllBombs() {
         const cellValue = Number(cellArray[i].innerHTML);
         if (bombsList.includes(cellValue)) {
             cellArray[i].classList.add("bomb");
-            mainHTML.classList.add("unclickable");
-            divOverlay.classList.remove("d-none");
-            divOverlay.classList.add("d-flex");
-            divFinalScore.innerHTML = currentScore;
+
         }
     }
+    mainHTML.classList.add("unclickable");
+    divOverlay.classList.remove("d-none");
+    divOverlay.classList.add("d-flex");
+    divYouLose.classList.remove("d-none");
+    divFinalScore.innerHTML = currentScore;
 }
 
 // Funzione per capire se ho vinto
 function didYouWin() {
     if (currentScore === cellArray.length - 16) {
-        // inserire elemento dom da modificare
-        console.log("Hai vinto");
+        mainHTML.classList.add("unclickable");
+        divOverlay.classList.remove("d-none");
+        divOverlay.classList.add("d-flex");
+        divYouWon.classList.remove("d-none");
+        divFinalScore.innerHTML = currentScore;
     }
 }
 
@@ -85,6 +90,8 @@ function startGame() {
     mainHTML.classList.remove("unclickable");
     divOverlay.classList.add("d-none");
     divOverlay.classList.remove("d-flex");
+    divYouWon.classList.add("d-none");
+    divYouLose.classList.add("d-none");
     clickedCells = [];
     currentScore = 0;
     divFinalScore.innerHTML = "";
@@ -129,12 +136,16 @@ const playButton = document.getElementById("play-button");
 const callToAction = document.querySelector(".call-to-action");
 let bombsList = [];
 let clickedCells = [];
+let cellArray = 0;
 const spanScore = document.getElementById("user-score");
 let currentScore = 0;
 const mainHTML = document.getElementById("main-element");
 const divOverlay = document.querySelector(".overlay");
 const divFinalScore = document.getElementById("final-score");
-let cellArray = 0;
+const divYouLose = document.getElementById("you-lose");
+const divYouWon = document.getElementById("you-won");
+
+
 
 // Creazione opzioni in modo dinamico
 for (i = 0; i < gameDifficulty.length; i++) {
