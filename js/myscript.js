@@ -1,11 +1,30 @@
 // FUNCTIONS
 
-// Funzione per capire se la cella contiene una bomba
+//Funzione che mostra tutte le bombe in caso di gameover
+function showAllBombs() {
+    const cellArray = document.querySelectorAll(".cell");
 
+    for (let i = 0; i < currentCells; i++) {
+        const cellValue = Number(cellArray[i].innerHTML);
+        if (bombsList.includes(cellValue)) {
+            cellArray[i].classList.add("bomb");
+        }
+    }
+}
+
+// Funzione per gameover oppure win
+function didYouWin() {
+    if (currentScore === currentCells - 16) {
+        // inserire elemento dom da modificare
+        console.log("Hai vinto");
+    }
+}
+
+// Funzione per capire se la cella contiene una bomba
 function checkIfBomb(cell, bombsList) {
     const cellValue = Number(cell.innerHTML);
     if (bombsList.includes(cellValue)) {
-        cell.classList.add("bomb");
+        showAllBombs();
         return true;
     }
     if (!clickedCells.includes(cellValue)) {
@@ -25,7 +44,10 @@ function generateElement(tag, classes, content, wantEventListener) {
     if (wantEventListener) {
         cell.addEventListener("click", function () {
 
-            checkIfBomb(cell, bombsList);
+            if (!checkIfBomb(cell, bombsList)) {
+                didYouWin();
+            }
+
         })
     }
 
@@ -72,22 +94,26 @@ function startGame() {
         case gameDifficulty[3]:
             generateBoard(board, loopsArray[3], gameDifficulty[3]);
             bombsList = createBombs(loopsArray[3]);
+            currentCells = loopsArray[3];
             break;
 
         case gameDifficulty[2]:
             generateBoard(board, loopsArray[2], gameDifficulty[2]);
             bombsList = createBombs(loopsArray[2]);
+            currentCells = loopsArray[2];
             break;
 
         case gameDifficulty[1]:
             generateBoard(board, loopsArray[1], gameDifficulty[1]);
             bombsList = createBombs(loopsArray[1]);
+            currentCells = loopsArray[1];
             break;
 
         case gameDifficulty[0]:
         default:
             generateBoard(board, loopsArray[0], gameDifficulty[0]);
             bombsList = createBombs(loopsArray[0]);
+            currentCells = loopsArray[0];
     }
 }
 
@@ -103,6 +129,7 @@ let bombsList = [];
 let clickedCells = [];
 const spanScore = document.getElementById("user-score");
 let currentScore = 0;
+let currentCells = 0;
 
 
 // Creazione opzioni in modo dinamico
