@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Import Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- /Import Bootstrap -->
+
+    <!-- Import Fonts -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- /Font Awesome -->
+    <!-- /Import Fonts -->
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- /Import CSS -->
+
+    <!-- Titolo scheda -->
+    <title>Campo Minato</title>
+    <!-- /Titolo scheda -->
+
+</head>
+
+<body class="d-flex flex-column">
+
+    <!-- Header -->
+    <header>
+        <div class="row d-flex justify-content-between align-items-center">
+            <!-- Menu di sinistra -->
+            <div class="col d-flex gap-3">
+                <img src="img/Logo.png" alt="Logo boolean">
+                <h1 class="fw-bold">Campo Minato</h1>
+            </div>
+            <!-- /Menu di sinistra -->
+
+            <!-- Menu di destra -->
+            <div class="col d-flex gap-4 justify-content-end align-items-center">
+                <span class="fs-5">Difficoltà:</span>
+                <select class="form-select custom-btn select" id="difficulty-selector">
+                    <!-- Opzioni generate dinamicamente -->
+                </select>
+                <button type="button" class="custom-btn play" id="play-button">Play</button>
+            </div>
+            <!-- /Menu di destra -->
+        </div>
+
+    </header>
+    <!-- /Header -->
+
+    <!-- Main -->
+    <main class="d-flex justify-content-center align-content-center flex-wrap">
+        <h2 class="call-to-action">Premi "Play" per iniziare una partita!</h2>
+
+        <!-- Board di gioco -->
+        <ul class="board d-flex flex-wrap d-none">
+            <!-- Celle generate dinamicamente -->
+        </ul>
+        <!-- /Board di gioco -->
+
+    </main>
+    <!-- /Main -->
+
+    <!-- Footer -->
+    <footer>
+        <span>Made with ♥ by <a href="#">Boolean</a></span>
+    </footer>
+    <!-- /Footer -->
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <!-- /Bootstrap JS -->
+
+    <!-- Import JS -->
+    <script src="js/myscript.js"></script>
+    <!-- /Import JS -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+body {
+    height: 100vh;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+/* #region VARIABLES */
+
+/* #endregion VARIABLES */
+
+/* #region TYPOGRAPHY */
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* #endregion TYPOGRAPHY */
+
+/* #region COMMON */
+
+header,
+main,
+footer {
+    padding: 30px 30px;
+}
+
+.custom-btn.play,
+.custom-btn.select,
+.custom-btn.select option {
+    font-weight: 500;
+}
+
+.custom-btn {
+    background-color: rgb(228, 228, 228);
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+/* #endregion COMMON */
+
+/* #region HEADER */
+
+/* #endregion HEADER */
+
+/* #region MAIN */
+
+main {
+    flex-grow: 1;
+    background-color: aquamarine;
+}
+
+.custom-btn.play {
+    padding: 0 35px;
+}
+
+.custom-btn.select {
+    width: 200px;
+    margin-left: -10px;
+    padding: 0 0 0 10px;
+    font-size: 1.125rem;
+}
+
+ul.board {
+    width: 600px;
+    height: 600px;
+}
+
+ul.board .cell {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cell.facile {
+    width: calc(100% / 10);
+    height: calc(100% / 10);
+}
+
+.cell.medio {
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.cell.difficile {
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
+
+.cell.pro {
+    width: calc(100% / 5);
+    height: calc(100% / 5);
+}
+
+.active {
+    background-color: aqua;
+}
+
+.bomb {
+    background-color: red !important;
+}
+
+/* #endregion MAIN */
+
+/* #region FOOTER */
+
+/* #endregion FOOTER */
+
+/* #region MEDIA QUERIES */
+
+/* #endregion MEDIA QUERIES */
